@@ -16,7 +16,7 @@ node {
             sh 'env/bin/python3.5 manage.py test --testrunner=djtrump.tests.test_runners.NoDbTestRunner'
 
         stage 'Deploy'
-            sh './deployment/deploy_prod.sh'
+            sh './deploy_prod.sh'
 
         stage 'Publish results'
     }
