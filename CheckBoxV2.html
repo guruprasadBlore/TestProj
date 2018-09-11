@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+          integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<input type="file" value="" id="ip1">
+
+<div class="checkbox">
+    <input type="checkbox" id="first" class="ckbox">
+    <input type="checkbox" id="second" class="ckbox">
+    <input type="checkbox" id="third" class="ckbox">
+    <input type="checkbox" id="fourth" class="ckbox">
+    <input type="checkbox" id="fifth" class="ckbox" checked="checked">
+</div>
+<input type="submit" class="btn btn-primary" id="clickme" value="click me!!">
+<ul class="list-group">
+  <li class="list-group-item">Cras justo odio</li>
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+  <li class="list-group-item">Morbi leo risus</li>
+  <li class="list-group-item">Porta ac consectetur ac</li>
+  <li class="list-group-item">Vestibulum at eros</li>
+</ul>
+<script>
+    $("#clickme").click( function() {
+           $("#ip1").attr("value","You clicked it")
+           $(".ckbox").each( function() {
+             if( $(this).prop("checked") ) {
+             $(this).prop("checked",false);
+             }
+             else {
+             $(this).prop("checked",true);
+             }
+           })
+    });
+
+</script>
+</body>
+</html>

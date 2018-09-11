@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WelCome Page</title>
+</head>
+<body>
+{% if next %}
+<form action="login/?next={{next}}" method="post">{% csrf_token %}
+    {% else %}
+    <form method="post" action="login/">
+        {% endif %}
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        <input type="submit" value="submit"/>
+    </form>
+</body>
+</html>
+
+
+<!--{% if next %}-->
+<!--<form action="login/?next={{next}}" method="post">-->
+<!--{% else %}-->
+<!--<form method="post" action="login/">-->
+<!--{% endif %}-->
+<!---->
+<!--{{ form.as_p }}-->
+<!--&lt;!&ndash;<input type="hidden" name="next" value="{{ next }}">&ndash;&gt;-->
+<!--<input type="submit" value="submit"/>-->
+<!--</form>-->
+
+

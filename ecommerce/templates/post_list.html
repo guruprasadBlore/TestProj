@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="/static/jquery.min.js"></script>
+<script src="/static/helper.js"></script>
+{% extends 'base.html' %}
+</head>
+<body>
+{% block content %}
+<ul class="nav nav-pills">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">Profile</a></li>
+    <li><a href="#">Messages</a></li>
+</ul>
+<br>
+
+    <input type='text' id="search_bar" name='q' placeholder='Search posts' value='{{ request.GET.q }}'/>
+    <button onclick="search_post()">Search</button>
+    <!--<input type='submit' value='Search'/>-->
+
+
+{% for post in result %}
+<div>
+    <p><a href="{{ post.get_absolute_url }}" role="button"><h1>{{post.title}}</h1></a></p>
+    <br>
+    <p>{{post.user}}</p>
+    <br>
+    <p>{{post.content|truncatechars_html:20}}</p>
+</div>
+{% endfor %}
+
+
+<div class="pagination">
+    <span class="step-links">
+      {% if result.has_previous %}
+        <a href="?{{ page_request_var }}={{ result.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a>
+      {% endif %}
+      <span>
+        Page {{ result.number }} of {{ result.paginator.num_pages }}
+      </span>
+
+      {% if result.has_next %}
+            <a href="?{{ page_request_var }}={{ result.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a>
+      {% endif %}
+    </span>
+</div>
+<!--  <p><a href="{{ post.get_absolute_url }}"  role="button">View</a></p> -->
+
+
+{% endblock %}
+
+
+
+</body>
+</html>
+

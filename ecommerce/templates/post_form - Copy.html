@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Create</title>
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+        alert("hi")
+        $( "#myform button" ).click( function( event ) {
+        var action = "";
+        if(event.currentTarget.id == "submitbtn"){
+        action="create/"
+        }
+        $( "#myform" ).attr( "action", "/" + action + "/" );
+        $( "#myform" ).submit();
+        });
+
+        });
+    </script>
+</head>
+<body>
+<div>
+<form id="myform" method="post" > {% csrf_token %}
+    {{ form.as_p }}
+<!-- <input type="submit" value="submit"> -->
+<button type="button" id="submitbtn" >submit btn</button>
+</form>
+</div>
+<div>
+<h1>Preview</h1>
+<input id="preview-title"></input>
+<br>
+<p id="preview-content" ></p>
+</div>
+</body>
+</html>
