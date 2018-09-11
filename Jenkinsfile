@@ -10,9 +10,9 @@ node {
             def lastChanges = readFile('GIT_CHANGES')
 
         stage 'Test'
-            #sh 'virtualenv env'
-            #sh '. env/bin/activate'
-            #sh 'env/bin/pip install -r requirements.txt'
+            //sh 'virtualenv env'
+            //sh '. env/bin/activate'
+            //sh 'env/bin/pip install -r requirements.txt'
             sh 'python manage.py test'
 
         stage 'Deploy'
