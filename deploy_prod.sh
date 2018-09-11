@@ -1,11 +1,9 @@
 #!/bin/sh
 
-ssh root@104.236.57.112 <<EOF
-  cd djtrump
+  cd /Users/gvidyash/test_git_proj 
   git pull
-  source /opt/envs/djtrump/bin/activate
+  source ./env/bin/activate
   pip install -r requirements.txt
   ./manage.py migrate
-  sudo supervisorctl restart djtrump
+  sudo supervisorctl restart ecommerce
   exit
-EOF
