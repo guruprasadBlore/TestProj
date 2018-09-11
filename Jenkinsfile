@@ -13,7 +13,7 @@ node {
             sh 'virtualenv env'
             sh '. env/bin/activate'
             sh 'env/bin/pip install -r requirements.txt'
-            sh 'env/bin/python manage.py test --testrunner=djtrump.tests.test_runners.NoDbTestRunner'
+            sh 'env/bin/python manage.py test'
 
         stage 'Deploy'
             sh './deploy_prod.sh'
